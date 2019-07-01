@@ -36,7 +36,7 @@ const main = require('./controllers/main')
 const app = express()
 
 // App Middleware
-const whitelist = ['http://localhost:3001']
+const whitelist = ['http://localhost:3000']
 const corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1 || !origin) {
@@ -46,6 +46,7 @@ const corsOptions = {
     }
   }
 }
+
 app.use(helmet())
 app.use(cors(corsOptions))
 app.use(bodyParser.json())
@@ -59,6 +60,6 @@ app.put('/crud', (req, res) => main.putTableData(req, res, db))
 app.delete('/crud', (req, res) => main.deleteTableData(req, res, db))
 
 // App Server Connection
-app.listen(process.env.PORT || 3000, () => {
-  console.log(`app is running on port ${process.env.PORT || 3000}`)
+app.listen(process.env.PORT || 3001, () => {
+  console.log(`app is running on port ${process.env.PORT || 3001}`)
 })
