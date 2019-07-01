@@ -19,7 +19,7 @@ const morgan = require('morgan') // logs requests
 // });
 
 // db Connection w/ localhost
-var db = require('knex')({
+let db = require('knex')({
   client: 'pg',
   connection: {
     host : '127.0.0.1',
